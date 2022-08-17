@@ -23,3 +23,5 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 [Curso DIO: Arquitetura Orientada a Eventos com Java Spring Boot e Kafka](https://web.dio.me/course/arquitetura-orientada-a-eventos-com-java-spring-boot-e-kafka/learning/2ca710ba-6a28-481c-a663-6f85aaec329b)
 
 [Confluent Kafka Definite Guide](https://assets.confluent.io/m/1b509accf21490f0/original/20170707-EB-Confluent_Kafka_Definitive-Guide_Complete.pdf)
+
+[Máquinas Virtuais](https://drive.google.com/file/d/1CsHc311jp4EuZ8be5KGaumniGAafa8sC/view?usp=sharing)
