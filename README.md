@@ -29,6 +29,8 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
 - [Youtube: Introduction to Apache Kafka [Apache Kafka Tutorials #1]](https://www.youtube.com/watch?v=cmzhqv1ZqGA&list=PLa6iDxjj_9qVGTh3jia-DAnlQj9N-VLGp&index=2)
 
+- [Youtube: Running Kafka on Docker with Compose](https://www.youtube.com/watch?v=ncTosfaZ5cQ)
+
 
 ### Ferramentas
 
