@@ -30,19 +30,20 @@ Após a execução desses comandos é possível visualizar os containers e a apl
 
 ![Docker Desktop](https://user-images.githubusercontent.com/39354498/185271121-40d00ea8-b8e1-4fb3-8d17-1b325536e7db.png)
 
-
 Para visualizar de forma mais detalhada o cluster do Kafka - seus brokers, topics e consumers - a [Offset Explorer IDE for Kafka](https://www.kafkatool.com/download.html) é utilizada. A tela a seguir demonstra como adicionar a conexão do cluster para visualização:
 
 ![Offset Explorer](https://user-images.githubusercontent.com/39354498/185271000-528bd5e3-ad14-45e3-bfe0-524433f0bac4.png)
 
-Após o preenchimento dos dados como nome, porta, caminho e outros é possível analisar a estrutura do cluster:
+Após o preenchimento dos dados como nome, porta, caminho e outros é possível analisar a estrutura do cluster. A conexão deve ser feita com o container do Zookeper e não no container do Kafka de forma direta.
 
 ![TP1 Cluster](https://user-images.githubusercontent.com/39354498/185271539-090d43b5-f828-4a10-a671-7c4623cebcf2.png)
 
 
-
 ## Aplicação Escolhida
 
+A aplicação escolhida será feita com Java e Spring Boot. Para a geração do projeto inicial é utilizada a ferramenta Spring Initializr, que gera o projeto por meio de configurações e as dependências necessárias. [Clique aqui](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.2&packaging=jar&jvmVersion=17&groupId=tp1.sistemas.distribuidos&artifactId=kafka.trabalho.pratico&name=kafka.trabalho.pratico&description=Desenvolvimento%20do%20trabalho%20pr%C3%A1tico%201%20da%20disciplina%20de%20Sistemas%20Distribu%C3%ADdos.&packageName=tp1.sistemas.distribuidos.kafka.trabalho.pratico&dependencies=web,kafka,lombok) para acessar a configuração criada
+
+![spring initializr](https://user-images.githubusercontent.com/39354498/185273108-64c8b858-c610-48c1-835b-d96983f5ce60.png)
 
 ## Referências do Trabalho
 
