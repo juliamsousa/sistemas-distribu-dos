@@ -76,3 +76,8 @@ A aplicação escolhida será feita com Java e Spring Boot. Para a geração do 
 
 - [Confluent Kafka Definite Guide](https://assets.confluent.io/m/1b509accf21490f0/original/20170707-EB-Confluent_Kafka_Definitive-Guide_Complete.pdf)
 
+
+### Troubleshooting
+
+[Installing Docker Desktop Error](http://www.dark-hamster.com/software/how-to-solve-error-message-docker-failed-to-initialize-docker-desktop-is-shutting-down-when-running-docker-in-microsoft-windows/)
+[Unresolved Reference to @EnableKafka](https://stackoverflow.com/questions/64639836/plugin-org-springframework-bootspring-boot-maven-plugin-not-found)
