@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b7b856c-d1fa-4b7b-b03b-aeb4fb085ec5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TP1/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/main/java/controller/PedidosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/main/java/data/PedidoData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/main/java/services/RegistraEventoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/main/java/tp1/sistemas/distribuidos/kafka/trabalho/pratico/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP1/src/test/java/tp1/sistemas/distribuidos/kafka/trabalho/pratico/ApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +49,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/julia/Documents/GitHub/sistemas-distribuidos/TP1",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "last_opened_file_path": "C:/Users/julia/Documents/GitHub/sistemas-distribuidos/TP1-Microservices",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "f975603793e87bf4951665d8c3faaeb7"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -67,6 +79,7 @@
       <workItem from="1660763786803" duration="372000" />
       <workItem from="1660784558114" duration="1044000" />
       <workItem from="1660787985500" duration="1149000" />
+      <workItem from="1660835214160" duration="46000" />
     </task>
     <servers />
   </component>
