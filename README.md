@@ -26,6 +26,21 @@ $ curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/ka
 $ docker-compose up -d
 ```
 
+Após a execução desses comandos é possível visualizar os containers e a aplicação criada em execução no Docker Desktop:
+
+![Docker Desktop](https://user-images.githubusercontent.com/39354498/185271121-40d00ea8-b8e1-4fb3-8d17-1b325536e7db.png)
+
+
+Para visualizar de forma mais detalhada o cluster do Kafka - seus brokers, topics e consumers - a [Offset Explorer IDE for Kafka](https://www.kafkatool.com/download.html) é utilizada. A tela a seguir demonstra como adicionar a conexão do cluster para visualização:
+
+![Offset Explorer](https://user-images.githubusercontent.com/39354498/185271000-528bd5e3-ad14-45e3-bfe0-524433f0bac4.png)
+
+Após o preenchimento dos dados como nome, porta, caminho e outros é possível analisar a estrutura do cluster:
+
+![TP1 Cluster](https://user-images.githubusercontent.com/39354498/185271539-090d43b5-f828-4a10-a671-7c4623cebcf2.png)
+
+
+
 ## Aplicação Escolhida
 
 
