@@ -10,6 +10,22 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
 ## Formas de Instalação
 
+A imagem Docker utiliza é a [bitnami/kafka](https://hub.docker.com/r/bitnami/kafka).
+
+Para fazer o download da imagem para a máquina local em sua versão mais recente basta executar o comando:
+
+```bash
+$ docker pull bitnami/kafka:latest
+```
+
+Para executar a aplicação utilizando Docker Compose os seguintes comandos devem ser executados. O primeiro comando cria ou preenche um 
+arquivo docker-compose.yml já existente. O segundo comando executa a aplicação.
+
+```bash
+$ curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/kafka/docker-compose.yml > docker-compose.yml
+$ docker-compose up -d
+```
+
 ## Aplicação Escolhida
 
 
