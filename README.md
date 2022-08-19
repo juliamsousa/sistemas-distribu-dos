@@ -80,5 +80,7 @@ A aplicação escolhida será feita com Java e Spring Boot. Para a geração do 
 ### Troubleshooting
 
 - [Installing Docker Desktop Error](http://www.dark-hamster.com/software/how-to-solve-error-message-docker-failed-to-initialize-docker-desktop-is-shutting-down-when-running-docker-in-microsoft-windows/)
-- 
+
 - [Unresolved Reference to @EnableKafka](https://stackoverflow.com/questions/64639836/plugin-org-springframework-bootspring-boot-maven-plugin-not-found)
+
+- [Config Nodejs With Confluent](https://developer.confluent.io/get-started/nodejs/)
