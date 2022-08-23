@@ -8,6 +8,10 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
 ## Funcionamento Interno
 
+A arquitetura do Apache Kafka se basea em 4 conceitos: consumers, producers, cluster (brokers) e topics. 
+
+O cluster do Kafka é composto de um ou vários brokers, que são responsáveis por armazenar as mensagens enviadas pelo producer em tópicos. Os tópicos são compostos por uma ou várias partições, que contêm as mensagens. Essas partições permitem que as informações contidas nos tópicos sejam acessadas simultaneamente por vários consumers.  
+
 ## Formas de Instalação
 
 A imagem Docker utiliza é a [bitnami/kafka](https://hub.docker.com/r/bitnami/kafka).
