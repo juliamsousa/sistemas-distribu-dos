@@ -6,8 +6,6 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
 ## Descrição da Solução Middleware Utilizada
 
-## Funcionamento Interno
-
 A arquitetura do Apache Kafka se basea em 4 conceitos: consumers, producers, cluster (brokers) e topics. 
 
 De forma básica, um producer é aquele que envia as mensagens para o cluster. Por outro lado, os consumers são aqueles que leem as informações disponibilizadas no cluster.
@@ -45,8 +43,13 @@ Após o preenchimento dos dados como nome, porta, caminho e outros é possível 
 
 Para utilizar a Confluent Cloud é necessário criar uma conta, um cluster e gerar as chaves de API necessárias para integrar a aplição à nuvem. A criação de cluster e chaves na ferramenta é bastante simplificada, uma vez que abstrai muitas configurações para que os devenvolvedores foquem apenas naquilo que é importante.
 
+Visão geral do cluster criado:
 
+![Captura de tela 2022-08-22 233055](https://user-images.githubusercontent.com/39354498/186056038-ea121cf0-b3a0-489a-bb2b-e4bc859ceb3c.png)
 
+Visão geral do arquivo de conexão do cluster:
+
+![image](https://user-images.githubusercontent.com/39354498/186056246-493a3906-2389-4ced-8a56-22a7cc9acd7b.png)
 
 
 ## Aplicação Escolhida
@@ -75,6 +78,8 @@ A aplicação escolhida foi desenvolvida em Node.js, emulando o sistema de vota�
 - [Youtube: Introduction to Apache Kafka [Apache Kafka Tutorials #1]](https://www.youtube.com/watch?v=cmzhqv1ZqGA&list=PLa6iDxjj_9qVGTh3jia-DAnlQj9N-VLGp&index=2)
 
 - [Youtube: Running Kafka on Docker with Compose](https://www.youtube.com/watch?v=ncTosfaZ5cQ)
+
+- [Cloud Kafka - Node.js: Code Example for Apache Kafka® ](https://docs.confluent.io/platform/6.2.1/tutorials/examples/clients/docs/nodejs.html)
 
 
 ### Ferramentas
