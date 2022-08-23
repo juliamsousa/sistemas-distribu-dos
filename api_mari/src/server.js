@@ -6,20 +6,34 @@ import routes from './routes.js';
 const app = express();
 
 /**
- * Faz conexão com o Kafka
+ * Faz conexão com o Kafka - Confluent Cloud
  */
 
- const username = 'QZRZVRJP2MXHBF5M';
- const password = 'XckVtyJnX97X66xSg5pp0IP5aG/gobfWBwX66Fb6RkgmFtzK0Z/D+T7UZiK8AH/c'
- const sasl = username && password ? { username, password, mechanism: 'plain' } : null
- const ssl = !!sasl
+//  const username = 'QZRZVRJP2MXHBF5M';
+//  const password = 'XckVtyJnX97X66xSg5pp0IP5aG/gobfWBwX66Fb6RkgmFtzK0Z/D+T7UZiK8AH/c'
+//  const sasl = username && password ? { username, password, mechanism: 'plain' } : null
+//  const ssl = !!sasl
 
-const kafka = new Kafka({
+// const kafka = new Kafka({
+//   clientId: 'api',
+//   brokers: ['pkc-ldjyd.southamerica-east1.gcp.confluent.cloud:9092'],
+//   logLevel: logLevel.WARN,
+//   ssl,
+//   sasl,
+//   retry: {
+//     initialRetryTime: 300,
+//     retries: 10
+//   },
+// });
+
+/**
+ * Faz conexão com o Kafka Docker
+ */
+
+ const kafka = new Kafka({
   clientId: 'api',
-  brokers: ['pkc-ldjyd.southamerica-east1.gcp.confluent.cloud:9092'],
+  brokers: ['localhost:9092'],
   logLevel: logLevel.WARN,
-  ssl,
-  sasl,
   retry: {
     initialRetryTime: 300,
     retries: 10

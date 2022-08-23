@@ -11,6 +11,6 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "voto_response:1:1,voto_mari_gonzalez:1:1,voto_manu_gavassi:1:1,voto_felipe_prior:1:1"
+      KAFKA_CREATE_TOPICS: "voto_response:1:1,voto_mari_gonzalez:1:1,voto_manu_gavassi:1:1,voto_felipe_prior:1:1, voto_mari_response:1:1,voto_prior_response:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
