@@ -56,7 +56,9 @@ Visão geral do arquivo de conexão do cluster:
 
 A aplicação escolhida foi desenvolvida em Node.js, emulando o sistema de votação do Big Brother Brasil de forma simplificada. A Globo utiliza o Kafka em várias de suas aplicações e, inclusive, aparece na lista de empresas que utiliza o Apache Kafka na página oficial. 
 
-        👇 O primeiro lugar do ranking trouxe um recorde internacional! O paredão entre Prior, Manu Gavassi e Mari Gonzalez, no BBB 20, teve nada menos que 1.532.944.337 votos e entrou para o Guinness World Records como a maior votação de um programa de televisão no mundo.
+        👇 O primeiro lugar do ranking trouxe um recorde internacional! O paredão entre Prior, 
+        Manu Gavassi e Mari Gonzalez, no BBB 20, teve nada menos que 1.532.944.337 votos e 
+        entrou para o Guinness World Records como a maior votação de um programa de televisão no mundo.
 
 Pensando nisso, desenvolvemos este trabalho emulando - de forma simplificada - o sistema de votação do Big Brother Brasil. A ideia geral foi criar producers e consumers separados para cada participante, tornando o processamento de votos independente.
 
@@ -65,6 +67,7 @@ Os votos são recebidos de um front end, que faz requisições do tipo post as A
 Estrutura da aplicação:
 
 
+![image](https://user-images.githubusercontent.com/39354498/186060926-13a8c9dd-dc6d-4767-bfb8-805decd33dca.png)
 
 
 [Big Data na Globo](https://cirocavani.github.io/post/bigdata-na-globocom/)
