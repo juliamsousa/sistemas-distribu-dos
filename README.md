@@ -16,22 +16,17 @@ O cluster do Kafka é composto de um ou vários brokers, que são responsáveis 
 
 ![Funcionamento Geral do Kafka](https://imgopt.infoq.com/fit-in/1200x2400/filters:quality(80)/filters:no_upscale()/articles/apache-kafka-licoes/pt/resources/Figura2-1565808316941.jpeg)
 
+O Kafka se destaca em: Performance, com alto throughput no recebimento e distribuição; Escalabilidade, muitos consumidores, isolamento entre consumidores, e; Mensagens pequenas, não estruturadas / opacas (bytes).
+
 ## Formas de Instalação
 
-A imagem Docker utiliza é a [bitnami/kafka](https://hub.docker.com/r/bitnami/kafka).
+Para executar a aplicação utilizando Docker Compose um arquivo do tipo .yml foi criado. Nesse arquivo são definidas as imagens, tanto do Kafka quando do Zookeper, as portas, hostnames e também a criação de tópicos. 
 
-Para fazer o download da imagem para a máquina local em sua versão mais recente basta executar o comando:
-
-```bash
-$ docker pull bitnami/kafka:latest
-```
-
-Para executar a aplicação utilizando Docker Compose os seguintes comandos devem ser executados. O primeiro comando cria ou preenche um 
-arquivo docker-compose.yml já existente. O segundo comando executa a aplicação.
+### Docker
+Desse modo, para a criação e para colocar o cluster no ar basta realizar o seguinte comando: 
 
 ```bash
-$ curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/kafka/docker-compose.yml > docker-compose.yml
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 Após a execução desses comandos é possível visualizar os containers e a aplicação criada em execução no Docker Desktop:
@@ -46,14 +41,24 @@ Após o preenchimento dos dados como nome, porta, caminho e outros é possível 
 
 ![TP1 Cluster](https://user-images.githubusercontent.com/39354498/185271539-090d43b5-f828-4a10-a671-7c4623cebcf2.png)
 
+### Confluent Cloud
+
+Para utilizar a Confluent Cloud é necessário criar uma conta, um cluster e gerar as chaves de API necessárias para integrar a aplição à nuvem. A criação de cluster e chaves na ferramenta é bastante simplificada, uma vez que abstrai muitas configurações para que os devenvolvedores foquem apenas naquilo que é importante.
+
+
+
+
 
 ## Aplicação Escolhida
 
-A aplicação escolhida será feita com Java e Spring Boot. Para a geração do projeto inicial é utilizada a ferramenta Spring Initializr, que gera o projeto por meio de configurações e as dependências necessárias. [Clique aqui](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.2&packaging=jar&jvmVersion=17&groupId=tp1.sistemas.distribuidos&artifactId=kafka.trabalho.pratico&name=kafka.trabalho.pratico&description=Desenvolvimento%20do%20trabalho%20pr%C3%A1tico%201%20da%20disciplina%20de%20Sistemas%20Distribu%C3%ADdos.&packageName=tp1.sistemas.distribuidos.kafka.trabalho.pratico&dependencies=web,kafka,lombok) para acessar a configuração criada
+A aplicação escolhida foi desenvolvida em Node.js, emulando o sistema de votação do Big Brother Brasil de forma simplificada.
 
-![spring initializr](https://user-images.githubusercontent.com/39354498/185273108-64c8b858-c610-48c1-835b-d96983f5ce60.png)
+[Big Data na Globo](https://cirocavani.github.io/post/bigdata-na-globocom/)
+
 
 ## Referências do Trabalho
+
+### Principal link de referência: [Code Challenge: Micro-serviços com Node e Kafka](https://www.youtube.com/watch?v=-H8pD7sMcfo)
 
 ### Tutoriais
 
