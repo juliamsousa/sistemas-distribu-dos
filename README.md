@@ -10,7 +10,11 @@ Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
 A arquitetura do Apache Kafka se basea em 4 conceitos: consumers, producers, cluster (brokers) e topics. 
 
-O cluster do Kafka é composto de um ou vários brokers, que são responsáveis por armazenar as mensagens enviadas pelo producer em tópicos. Os tópicos são compostos por uma ou várias partições, que contêm as mensagens. Essas partições permitem que as informações contidas nos tópicos sejam acessadas simultaneamente por vários consumers.  
+De forma básica, um producer é aquele que envia as mensagens para o cluster. Por outro lado, os consumers são aqueles que leem as informações disponibilizadas no cluster.
+
+O cluster do Kafka é composto de um ou vários brokers, que são responsáveis por armazenar as mensagens enviadas pelo producer em tópicos. Os tópicos são compostos por uma ou várias partições, que contêm as mensagens. Essas partições permitem que as informações contidas nos tópicos sejam acessadas simultaneamente por vários consumers. 
+
+![Funcionamento Geral do Kafka](https://imgopt.infoq.com/fit-in/1200x2400/filters:quality(80)/filters:no_upscale()/articles/apache-kafka-licoes/pt/resources/Figura2-1565808316941.jpeg)
 
 ## Formas de Instalação
 
