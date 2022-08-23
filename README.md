@@ -4,6 +4,17 @@
 
 Primeiro trabalho prático da disiciplina de Sistemas Distribuídos.
 
+## Sobre
+
+Apache Kafka é uma plataforma open-source de processamento de streams, tendo como objetivo fornecer uma  plataforma unificada, de alta capacidade e baixa latência para tratamento de dados em tempo real. É capaz de publicar, subscrever, armazenar e processar fluxos de registro em tempo real.
+
+Suas caracteristicas:
+
+- Open souce de Streaming de Eventos;
+- Solução assíncrona, tolerante a falhas e escalável;
+- Integração com diversas tecnologias de BD (Postgres, AWS, etc.);
+- Mais de 1.000 casos de uso.
+
 ## Descrição da Solução Middleware Utilizada
 
 A arquitetura do Apache Kafka se basea em 4 conceitos: consumers, producers, cluster (brokers) e topics. 
