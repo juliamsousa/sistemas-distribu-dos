@@ -48,6 +48,7 @@ async function run() {
 
   await consumer.subscribe({ topic: 'requests' });
 
+  // TODO: adicionar contador de requests para mostrar a mudança
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       console.log('Request Sent', String(message.value), '\n');
