@@ -1,4 +1,5 @@
 import {Kafka, logLevel} from 'kafkajs';
+const fs = require('fs');
 
 /**
  * Faz conexão com o Kafka - Confluent Cloud
@@ -20,11 +21,15 @@ const kafka = new Kafka({
  },
 });
 
-// Array responsável por armazenar as requisições
-const RequestList = [];
+
 
 // Função responsável por consumir as mensagens do tópico 'requests' e adicioná-los à fila de execução
 async function manage_requests() {
+  // Array responsável por armazenar as requisições
+  const data = fs.readFileSync('../request_queue.json');
+  const RequestList = JSON.parse(data);
+
+  // faz a criação de produtor e consumidor, criando e inscrevendo nos topicos correspondentes
   const topic = 'requests';
   const consumer = kafka.consumer({groupId: 'managers'})
   const producer = kafka.producer();
@@ -32,13 +37,11 @@ async function manage_requests() {
   await consumer.connect();
   await consumer.subscribe({topic});
 
-  const cont = 0;
+  let cont = 0;
 
   // para cada mensagem, adiciona o request a uma lista
   await consumer.run({
     eachMessage: async({topic, partition, message}) => {
-      console.log(`\nRequest nº ${cont} acknowledged and added to queue \n`);
-      cont++;
       /**
        * O request é adicionado ao final da lista
        * A ordem de prioridade da lista é FIFO
@@ -48,6 +51,12 @@ async function manage_requests() {
        */
 
       RequestList.push(JSON.parse(message.value));
+      const AddRequestList = JSON.stringify(RequestList);
+
+      fs.writeFile('../request_queue.json', AddRequestList, err => {
+        // error checking
+        if(err) throw err;
+      });  
 
       // Retorna a mensagem de request processado e adicionado à fila
       await producer.connect();
@@ -58,9 +67,11 @@ async function manage_requests() {
         ]
       })
     }
-  }); 
+  });
+  
+  console.log(`\nRequest nº ${cont} acknowledged and added to queue \n`);
+  cont++;
 }
-
 
 function run () {
   // adicionar aqui a primeira mensagem de release para desencadear a execução do manager
@@ -72,5 +83,3 @@ try {
 } catch(error) {
   console.error
 };
-
-export default RequestList;

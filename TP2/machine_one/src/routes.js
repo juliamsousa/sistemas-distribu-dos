@@ -2,8 +2,8 @@ import express from 'express';
 
 const routes = express.Router();
 const parsed_value = JSON.stringify({
-  fileList: 'Lista1.pdf; Prova1.pdf; Material_leitura.osd',
-  typeOfResource: 2
+  fileList: 'HarryPotter.pdf, Evelyn Hugo.pdf, Orlando.osd, Carol.pdf',
+  typeOfResource: 1
 });
 
 routes.post ('/request-resource', async (req, res) => {

@@ -1,5 +1,5 @@
 import {Kafka, logLevel} from 'kafkajs';
-// import RequestList from '../queue_manager'
+const fs = require('fs');
 
 /**
  * Faz conexão com o Kafka - Confluent Cloud
@@ -22,7 +22,12 @@ const kafka = new Kafka({
 });
 
 // Função responsável por consumir a fila de requisições e enviar para a impressão
-async function manage_printer_1() {
+async function manage_printer() {
+  // Array responsável por armazenar as requisições
+  const data = fs.readFileSync('../request_queue.json');
+  const RequestList = JSON.parse(data);
+
+  // faz a criação de produtor e consumidor, criando e inscrevendo nos topicos correspondentes
   const topic = 'release_resource_1';
   const consumer = kafka.consumer({groupId: 'printer_manager'})
   const producer = kafka.producer();
@@ -30,28 +35,42 @@ async function manage_printer_1() {
   await consumer.connect();
   await consumer.subscribe({topic});
 
-  // const current_request = RequestList.pop();
-  console.log(`Lista de requisições: `);
-
   // Verifica se a lista de requisicoes esta vazia para nao entrar em loop
-  // if (RequestList.length > 0) {
-    await consumer.run({
-      eachMessage: async({topic, partition, message}) => {
-        await producer.connect();
-        await producer.send({
-          topic: 'acquire_resource_1',
-          messages: [
-            { value: 'current_request'}
-          ]
-        })
-      }
-    }); 
-  // }
+  if (RequestList.length > 0) {
+    /**
+     * A operacao shift retirada o primeiro elemento da lista e armazena em uma variavel
+     * O item seguinte da request list passa a ser o primeiro item
+     * */
+    const current_request = RequestList.shift();
+    const current_request_string = JSON.stringify(current_request);
+
+    if (current_request_string != null) {
+      await consumer.run({
+        eachMessage: async({topic, partition, message}) => {
+          await producer.connect();
+          await producer.send({
+            topic: 'acquire_resource_1',
+            messages: [
+              { value: current_request_string}
+            ]
+          })
+        }
+      }); 
+    }
+  }
+
+  // Faz o parse da request list para string para poder ser escrita de volta no arquivo JSON
+  const AddRequestList = JSON.stringify(RequestList);
+  fs.writeFile('../request_queue.json', AddRequestList, err => {
+    // error checking
+    if(err) throw err;
+  });  
+
 }
 
 function run () {
   // adicionar aqui a primeira mensagem de release para desencadear a execução do manager
-  manage_printer_1();
+  manage_printer();
 }
 
 try {

@@ -32,7 +32,7 @@ async function print() {
 
   await consumer.run({
     eachMessage: async({topic, partition, message}) => {
-      console.log(`================================================\nImprimindo os arquivos... ${message.value}
+      console.log(`\nImprimindo os arquivos... ${message.value.fileList}
       `)
 
        /**
@@ -40,8 +40,7 @@ async function print() {
        * */
 
       const prefix = `topic: ${topic}[partition: ${partition} | message: ${message.offset}] / timestamp: ${message.timestamp}`
-      console.log(`\n- ${prefix} \n================================================
-      `)
+      console.log(`\n- ${prefix} \n`)
 
       /**
        * TODO: colocar um await com tempo aleatorio
