@@ -1,0 +1,4 @@
+socket: https://realpython.com/python-sockets/
+code: https://github.com/JVerwolf/byzantine_generals/blob/master/byzantine_generals.py
+vídeo: https://www.youtube.com/watch?v=N90ChyB2cYQ
+finalizar port windows: https://daniloab.medium.com/como-finalizar-um-processo-em-aberto-no-windows-525652152902
