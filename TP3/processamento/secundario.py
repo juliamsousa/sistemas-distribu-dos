@@ -1,45 +1,33 @@
 import socket
+import time
 
-IP = "127.0.0.3"
+IP = "127.0.0.1"
 PORT2 = 8082
 
-def isConnection(conn):
-    # Checando se o cliente está online
-    isConnected = "connected?"
-    conn.send(isConnected.encode("utf-8"))
-    isConnected = conn.recv(1024).decode("utf-8") 
+def multiplicacao(conn):
+    numbers = conn.recv(1024).decode("utf-8")
+    result = int(numbers[0]) * int(numbers[1])
+    print(f"{numbers[0]} * {numbers[1]} = {result}")
 
-    if isConnected == "Online":
-        return True
-    else:
-        return False
+    conn.send(str(result).encode("utf-8"))
 
-def multiplicacao(numbers):
-    return int(numbers[0]) * int(numbers[1])
-           
 
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print("Conectando ao servidor primário")
+    print("Conectando ao servidor backup")
 
     try:
         server.bind((IP, PORT2))
         server.listen()
-        print(f"[LISTENING] Servidor secundária na porta {PORT2}")
+        print(f"Backup 2 listening na porta {PORT2}")
     except:
-        return print("Problema de conexão. Não foi possível inicializar o Servidor Primário!")
+        return print("Problema de conexão. Não foi possível inicializar o Servidor 2!")
 
     conn, addr = server.accept()
+    multiplicacao(conn)
+    
+    server.close()
 
-    nameServidor = conn.recv(1024).decode("utf-8")
-    print(nameServidor + " o servidor primário")
-
-    #Verifica se o cliente está online antes de iniciar
-    if isConnection(conn):
-        numbers = conn.recv(1024).decode("utf-8")
-        print(multiplicacao(numbers))
-
-    conn.close()
 
 if __name__ == "__main__":
     main()

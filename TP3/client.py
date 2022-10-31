@@ -44,10 +44,9 @@ def main():
         client.connect((IP, PORT2))
         print("Conectado ao servidor secundário")
         mensage = "2"
-
-    # envia uma mensagem ao servidor
-    client.send(mensage.encode("utf-8"))
+        
     processamento(client)
+    client.close()
     
 if __name__ == "__main__":
     main()

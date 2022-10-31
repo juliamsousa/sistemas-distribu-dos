@@ -26,8 +26,25 @@ def multiplicacaoBackup(client,numbers):
 def multiplicacao(numbers):
     return int(numbers[0]) * int(numbers[1])
 
-def acordoBizantino():
-    print("test")   
+#Para ser válido o acordo, é necessário 2k+1 (sendo k número de erros) esteja funcionando corretamente para 3k+1 sistemas.
+def acordoBizantino(result1,result2,result3,result4):
+    if result1 == result2 == result3 == result4:
+        if (result1 and result2 and result3 and result4) >= 0:
+            print("De acordo com Bizantino")
+    elif result1 == result2 == result3: 
+        if (result1 and result2 and result3) >= 0:
+            print("De acordo com Bizantino")
+    elif result2 == result3 == result4: 
+        if (result2 and result3 and result4) >= 0:
+            print("De acordo com Bizantino")
+    elif result1 == result3 == result4: 
+        if (result1 and result3 and result4) >= 0:
+            print("De acordo com Bizantino")
+    elif result1 == result2 == result4: 
+        if (result1 and result2 and result4) >= 0:
+            print("De acordo com Bizantino")
+    else:
+        print("Não de acordo com Bizantino")
 
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -42,35 +59,35 @@ def main():
 
     conn, addr = server.accept()
 
-    nameServidor = conn.recv(1024).decode("utf-8")
-    print(nameServidor + " o servidor primário")
-
     #Verifica se o cliente está online antes de iniciar
     if isConnection(conn):
         numbers = conn.recv(1024).decode("utf-8")
         resultPrimary = multiplicacao(numbers)
-        print(resultPrimary)
         # conectando com backup
         backup1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         backup2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         backup3 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:        
             backup1.connect((IP, PORT2))
+            result1 = multiplicacaoBackup(backup1,numbers)
         except:
+            result1 = -1
             print("Não foi possível conectar com o BACKUP 1")
         try:        
             backup2.connect((IP, PORT3))
+            result2 = multiplicacaoBackup(backup2,numbers)
         except:
+            result2 = -1
             print("Não foi possível conectar com o BACKUP 2")
         try:        
             backup3.connect((IP, PORT4))
+            result3 = multiplicacaoBackup(backup3,numbers)
         except:
+            result3 = -1
             print("Não foi possível conectar com o BACKUP 3")
         #----------------------------------------------------#
-        result2 = multiplicacaoBackup(backup2,numbers)
-        result3 = multiplicacaoBackup(backup3,numbers)
-        print(str(result2) + " - " + str(result3) + " - " + str(resultPrimary))
 
+        acordoBizantino(result1,result2,result3,resultPrimary)
     conn.close()
 
 if __name__ == "__main__":
