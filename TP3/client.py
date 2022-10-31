@@ -1,7 +1,8 @@
 import socket
 import random
+from sqlite3 import connect
 
-IP = "127.0.0.3"
+IP = "127.0.0.1"
 PORT1 = 8081
 PORT2 = 8082
 PORT3 = 8083
@@ -12,15 +13,14 @@ def statusCLient(client):
         try:
             confirm_client = client.recv(1024).decode("utf-8")
         except:
-            print("[ERROR 00] Can't connect with server")
-            print("[RECONNECTING] Trying again")
+            print("Não é possível conectar com o servidor")
         
         if confirm_client == "connected?":        
             confirm_client = "Online"
             try:
                 client.send(confirm_client.encode("utf-8"))
             except:
-                print("[ERROR 01] Can't connect with server")
+                print("Não é possível conectar com o servidor")
 
 def processamento(client):
     statusCLient(client)
@@ -48,7 +48,19 @@ def main():
 
     # envia uma mensagem ao servidor
     client.send(mensage.encode("utf-8"))
-    processamento(client)
+    
+    #Criar menu infinito
+    menuTrue = True
+    while menuTrue:
+        entrada = input("Escolha uma das opções: \n1) Processamento \n2)Armazenamento \n3)Encerrar")
+        if int(entrada) == 1:
+            processamento(client)
+        elif int(entrada) == 2:
+            print("criar armazenamento")
+        elif int(entrada) == 3:
+            menuTrue = False
+            client.close
+
     
 if __name__ == "__main__":
     main()

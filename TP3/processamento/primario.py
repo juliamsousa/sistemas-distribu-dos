@@ -1,6 +1,6 @@
 import socket
 
-IP = "127.0.0.3"
+IP = "127.0.0.1"
 PORT1 = 8081
 PORT2 = 8082
 PORT3 = 8083
@@ -28,7 +28,7 @@ def main():
     try:
         server.bind((IP, PORT1))
         server.listen()
-        print(f"[LISTENING] Servidor primário na porta {PORT1}")
+        print(f"Servidor primário na porta {PORT1}")
     except:
         return print("Problema de conexão. Não foi possível inicializar o Servidor Primário!")
 
@@ -42,7 +42,7 @@ def main():
         numbers = conn.recv(1024).decode("utf-8")
         print(multiplicacao(numbers))
 
-    conn.close()
+    # conn.close()
 
 if __name__ == "__main__":
     main()
