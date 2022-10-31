@@ -1,6 +1,5 @@
 import socket
 import random
-from sqlite3 import connect
 
 IP = "127.0.0.1"
 PORT1 = 8081
@@ -48,19 +47,7 @@ def main():
 
     # envia uma mensagem ao servidor
     client.send(mensage.encode("utf-8"))
-    
-    #Criar menu infinito
-    menuTrue = True
-    while menuTrue:
-        entrada = input("Escolha uma das opções: \n1) Processamento \n2)Armazenamento \n3)Encerrar")
-        if int(entrada) == 1:
-            processamento(client)
-        elif int(entrada) == 2:
-            print("criar armazenamento")
-        elif int(entrada) == 3:
-            menuTrue = False
-            client.close
-
+    processamento(client)
     
 if __name__ == "__main__":
     main()
