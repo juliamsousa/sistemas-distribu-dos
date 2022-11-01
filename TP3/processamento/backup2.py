@@ -1,7 +1,7 @@
 import socket
 import time
 
-IP = "127.0.0.1"
+IP = "127.0.0.2"
 PORT2 = 8082
 
 def multiplicacao(conn):

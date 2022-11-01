@@ -1,8 +1,9 @@
 import socket
 import random
+import time
 
-IP = "127.0.0.1"
-PORT1 = 8081
+IP = "127.0.0.2"
+PORT1 = 8088
 PORT2 = 8082
 PORT3 = 8083
 PORT4 = 8084
@@ -39,12 +40,9 @@ def main():
     try:
         client.connect((IP, PORT1))
         print("Conectado ao servidor primário")
-        mensage = "1"
     except:
-        client.connect((IP, PORT2))
-        print("Conectado ao servidor secundário")
-        mensage = "2"
-        
+        print("Servidor primário indisponível")
+    
     processamento(client)
     client.close()
     

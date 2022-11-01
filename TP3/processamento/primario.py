@@ -1,8 +1,8 @@
 import socket
 import time
 
-IP = "127.0.0.1"
-PORT1 = 8081
+IP = "127.0.0.2"
+PORT1 = 8088
 PORT2 = 8082
 PORT3 = 8083
 PORT4 = 8084
@@ -30,19 +30,29 @@ def multiplicacao(numbers):
 def acordoBizantino(result1,result2,result3,result4):
     if result1 == result2 == result3 == result4:
         if (result1 and result2 and result3 and result4) >= 0:
-            print("De acordo com Bizantino")
+            print("De acordo com Bizantino, resultado = " + str(result4))
+        else:
+            print("Não de acordo com Bizantino")
     elif result1 == result2 == result3: 
         if (result1 and result2 and result3) >= 0:
-            print("De acordo com Bizantino")
+            print("De acordo com Bizantino, resultado = " + str(result3))
+        else:
+            print("Não de acordo com Bizantino")
     elif result2 == result3 == result4: 
         if (result2 and result3 and result4) >= 0:
-            print("De acordo com Bizantino")
+            print("De acordo com Bizantino, resultado = " + str(result3))
+        else:
+            print("Não de acordo com Bizantino")
     elif result1 == result3 == result4: 
         if (result1 and result3 and result4) >= 0:
-            print("De acordo com Bizantino")
+            print("De acordo com Bizantino, resultado = " + str(result3))
+        else:
+            print("Não de acordo com Bizantino")
     elif result1 == result2 == result4: 
         if (result1 and result2 and result4) >= 0:
-            print("De acordo com Bizantino")
+            print("De acordo com Bizantino, resultado = " + str(result1))
+        else:
+            print("Não de acordo com Bizantino")
     else:
         print("Não de acordo com Bizantino")
 
@@ -63,6 +73,7 @@ def main():
     if isConnection(conn):
         numbers = conn.recv(1024).decode("utf-8")
         resultPrimary = multiplicacao(numbers)
+
         # conectando com backup
         backup1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         backup2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
